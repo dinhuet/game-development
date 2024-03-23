@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1711121856 source:c:\users\administrator\desktop\btl\main.cpp
+	<SDL.h>
+	"game.h"
+	<bits/stdc++.h>
+
+1711120886 source:c:\users\administrator\desktop\btl\game.cpp
+	"game.h"
+	"SDL_image.h"
+
+1711119939 c:\users\administrator\desktop\btl\game.h
+	"SDL.h"
+	<iostream>
+	<vector>
+	<string>
+	"khunglong.h"
+	"monster.h"
+	"bat.h"
+
+1710582758 source:c:\users\administrator\desktop\btl\texturemanager.cpp
+	"texturemanager.h"
+	<SDL_image.h>
+
+1710582701 c:\users\administrator\desktop\btl\texturemanager.h
+	<string>
+	<map>
+	<SDL.h>
+
+1711120671 source:c:\users\administrator\desktop\btl\sdlgameobject.cpp
+	"sdlgameobject.h"
+	"game.h"
+	<iostream>
+
+1711120671 c:\users\administrator\desktop\btl\sdlgameobject.h
+	<SDL.h>
+	<string>
+	"vector2d.h"
+	"loaderparams.h"
+	"texturemanager.h"
+
+1710582175 c:\users\administrator\desktop\btl\vector2d.h
+	<math.h>
+
+1710582175 c:\users\administrator\desktop\btl\loaderparams.h
+	<SDL.h>
+	<string>
+
+1710862740 c:\users\administrator\desktop\btl\khunglong.h
+	"sdlgameobject.h"
+	"monster.h"
+
+1710862740 source:c:\users\administrator\desktop\btl\khunglong.cpp
+	"khunglong.h"
+	<iostream>
+
+1710862740 source:c:\users\administrator\desktop\btl\monster.cpp
+	"monster.h"
+	<iostream>
+
+1710862740 c:\users\administrator\desktop\btl\monster.h
+	"sdlgameobject.h"
+
+1711119561 source:c:\users\administrator\desktop\btl\bat.cpp
+	"bat.h"
+	<iostream>
+
+1710941519 c:\users\administrator\desktop\btl\bat.h
+	"sdlgameobject.h"
+
