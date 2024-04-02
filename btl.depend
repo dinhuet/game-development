@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1711121856 source:c:\users\administrator\desktop\btl\main.cpp
+1712075501 source:c:\users\administrator\desktop\btl\main.cpp
 	<SDL.h>
 	"game.h"
 	<bits/stdc++.h>
 
-1711120886 source:c:\users\administrator\desktop\btl\game.cpp
+1712074813 source:c:\users\administrator\desktop\btl\game.cpp
 	"game.h"
 	"SDL_image.h"
 
-1711119939 c:\users\administrator\desktop\btl\game.h
+1712074813 c:\users\administrator\desktop\btl\game.h
 	"SDL.h"
 	<iostream>
 	<vector>
@@ -38,7 +38,7 @@
 	"loaderparams.h"
 	"texturemanager.h"
 
-1710582175 c:\users\administrator\desktop\btl\vector2d.h
+1711984212 c:\users\administrator\desktop\btl\vector2d.h
 	<math.h>
 
 1710582175 c:\users\administrator\desktop\btl\loaderparams.h
@@ -65,5 +65,14 @@
 	<iostream>
 
 1710941519 c:\users\administrator\desktop\btl\bat.h
+	"sdlgameobject.h"
+
+1711988506 c:\users\administrator\desktop\btl\playbutton.h
+	"sdlgameobject.h"
+
+1711988478 c:\users\administrator\desktop\btl\helpbutton.h
+	"sdlgameobject.h"
+
+1711988506 c:\users\administrator\desktop\btl\exitbutton.h
 	"sdlgameobject.h"
 

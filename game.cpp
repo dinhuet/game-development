@@ -47,7 +47,31 @@ void Game::loadmedia()
     }
 
 }
+void Game::loadmenu()
+{
 
+    vectormenu.push_back("menu0.png");
+    vectormenu.push_back("menu1.png");
+    vectormenu.push_back("menu2.png");
+    vectormenu.push_back("instruction.png");
+    vectormenu.push_back("instruction1.png");
+    SDL_Surface* gmenu = IMG_Load("menu.png");
+    for(int i = 0; i < 5; i++)
+    {
+        SDL_Surface* gSurface = IMG_Load(vectormenu[i].c_str());
+        SDL_Texture* pTexture = SDL_CreateTextureFromSurface(m_pRenderer, gSurface);
+        vectorTextureMenu.push_back(pTexture);
+        SDL_FreeSurface(gSurface);
+    }
+    if(gmenu == 0)
+    {
+        std::cout << "fail to load menu";
+        return ;
+    }
+    pmenu = SDL_CreateTextureFromSurface(m_pRenderer, gmenu);
+    SDL_FreeSurface(gmenu);
+
+}
 
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
@@ -91,6 +115,7 @@ for(int i = 0; i < vectorbat.size(); i++)
     vectorbat[i]->draw();
 }
     SDL_RenderPresent(m_pRenderer);
+
 }
 
 void Game::update()
@@ -99,6 +124,7 @@ void Game::update()
 unsigned int currentTime = SDL_GetTicks();
 
     m_khunglong->update();
+
 if (currentTime - lastMonsterSpawnTime >= Time) // Thời gian giữa mỗi lần tạo monster là 5000ms
     {
 
@@ -169,6 +195,84 @@ void Game::movebackground()
     if(backgroundvelocity <= -1000) backgroundvelocity += 1000;
     backgroundX += backgroundvelocity ;
     //backgroundvelocity += backgroundacceleration;
+}
+void Game :: rendermenu()
+{
+    if(backgroundX == -backgroundwidth) backgroundX = 0;
+    SDL_Rect destRect;
+    destRect.x = 0;
+    destRect.y = 0;
+    destRect.w = 1000;
+    destRect.h = 600;
+
+        SDL_RenderCopy(m_pRenderer, pmenu,0, &destRect);
+        SDL_RenderPresent(m_pRenderer);
+
+}
+void Game :: rendermenubutton0()
+{
+
+    SDL_Rect destRect;
+    destRect.x = 0;
+    destRect.y = 0;
+    destRect.w = 1000;
+    destRect.h = 600;
+
+SDL_RenderCopy(m_pRenderer,vectorTextureMenu[0],0,&destRect);
+        // Xử lý các sự kiện khác ở đây (nếu cần)
+SDL_RenderPresent(m_pRenderer);
+}
+void Game :: rendermenubutton1()
+{
+
+    SDL_Rect destRect;
+    destRect.x = 0;
+    destRect.y = 0;
+    destRect.w = 1000;
+    destRect.h = 600;
+
+SDL_RenderCopy(m_pRenderer,vectorTextureMenu[1],0,&destRect);
+        // Xử lý các sự kiện khác ở đây (nếu cần)
+SDL_RenderPresent(m_pRenderer);
+}
+void Game :: rendermenubutton2()
+{
+
+    SDL_Rect destRect;
+    destRect.x = 0;
+    destRect.y = 0;
+    destRect.w = 1000;
+    destRect.h = 600;
+
+SDL_RenderCopy(m_pRenderer,vectorTextureMenu[2],0,&destRect);
+        // Xử lý các sự kiện khác ở đây (nếu cần)
+SDL_RenderPresent(m_pRenderer);
+}
+void Game :: rendermenubutton3()
+{
+
+    SDL_Rect destRect;
+    destRect.x = 0;
+    destRect.y = 0;
+    destRect.w = 1000;
+    destRect.h = 600;
+
+SDL_RenderCopy(m_pRenderer,vectorTextureMenu[3],0,&destRect);
+        // Xử lý các sự kiện khác ở đây (nếu cần)
+SDL_RenderPresent(m_pRenderer);
+}
+void Game :: rendermenubutton4()
+{
+
+    SDL_Rect destRect;
+    destRect.x = 0;
+    destRect.y = 0;
+    destRect.w = 1000;
+    destRect.h = 600;
+
+SDL_RenderCopy(m_pRenderer,vectorTextureMenu[4],0,&destRect);
+        // Xử lý các sự kiện khác ở đây (nếu cần)
+SDL_RenderPresent(m_pRenderer);
 }
 void Game :: renderbackground()
 {

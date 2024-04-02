@@ -61,9 +61,12 @@ public:
             (*this) *= 1 / l;
         }
     }
-
+    Vector2D* getmouseposition()
+    {
+        return m_mouseposition;
+    }
 private :
     float m_x;
     float m_y;
-
+    Vector2D* m_mouseposition;
 };

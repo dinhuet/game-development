@@ -9,6 +9,7 @@
 #include "khunglong.h"
 #include "monster.h"
 #include "bat.h"
+
 class Game
 {
     public:
@@ -37,6 +38,13 @@ void rendernextbackground();
 void middlerenderbackground();
 void checkcollisionbox(SDLGameObject* monster, SDLGameObject* khunglong);
 void restartgame();
+void loadmenu();
+void rendermenu();
+void rendermenubutton1();
+void rendermenubutton2();
+void rendermenubutton0();
+void rendermenubutton3();
+void rendermenubutton4();
     protected:
 
 
@@ -47,11 +55,18 @@ void restartgame();
 
         int m_currentFrame;
     std :: vector<SDL_Texture*> vectorTexture;
-    std :: vector<std::string> vectorfilename;
+    std::vector<SDL_Texture*> vectorTextureMenu;
+    SDL_Texture* pmenu;
 
+    std :: vector<std::string> vectorfilename;
+     std :: vector<std::string> vectormenu;
         SDLGameObject* m_khunglong = 0;
         SDLGameObject* m_monster = 0;
         SDLGameObject* m_bat;
+
+        std::vector<SDLGameObject*> vectormonster;
+        std::vector<SDLGameObject*> vectorbat;
+
  SDL_Window* m_pWindow = 0;
 SDL_Renderer* m_pRenderer = 0;
 int backgroundX ;
@@ -60,9 +75,6 @@ float backgroundvelocity ;
 float backgroundacceleration;
 int backgroundwidth;
 int backgroundheight;
-
-std::vector<SDLGameObject*> vectormonster;
-std::vector<SDLGameObject*> vectorbat;
 
 unsigned int Time;
 unsigned int lastMonsterSpawnTime;
