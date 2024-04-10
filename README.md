@@ -1,3 +1,0 @@
-- Dựa trên game khủng long nhảy của google chrome
-- Học + tham khảo những phần code cơ bản như texturemanager.h tại sách "SDL Game Development" https://www.packtpub.com/product/sdl-game-development/9781849696821
-- Các phần ảnh, background, menu, nhân vật lấy từ github https://github.com/thai-nm/dino-in-zungle
