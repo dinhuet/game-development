@@ -1,0 +1,15 @@
+﻿  bat.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\sdlgameobject.h(5,9): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  game.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\game.h(5,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  khunglong.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\sdlgameobject.h(5,9): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  main.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\main.cpp(2,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  monster.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\sdlgameobject.h(5,9): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  sdlgameobject.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\sdlgameobject.h(5,9): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  texturemanager.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\texturemanager.h(7,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Generating Code...
