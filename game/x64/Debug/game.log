@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\Administrator\Desktop\game-development\main.cpp(5,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\game-development\main.cpp(14,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  monster.cpp
+C:\Users\Administrator\Desktop\game-development\vector2d.h(14,32): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  texturemanager.cpp
+  Generating Code...
+  game.vcxproj -> C:\Users\Administrator\Desktop\game\x64\Debug\game.exe
