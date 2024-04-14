@@ -5,5 +5,5 @@ C:\Users\Administrator\Desktop\game-development\game.cpp(307,116): warning C4244
 C:\Users\Administrator\Desktop\game-development\game.cpp(307,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\Administrator\Desktop\game-development\game.cpp(320,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\Administrator\Desktop\game-development\game.cpp(320,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\game-development\game.cpp(520,38): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\game-development\game.cpp(529,38): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
   game.vcxproj -> C:\Users\Administrator\Desktop\game\x64\Debug\game.exe
