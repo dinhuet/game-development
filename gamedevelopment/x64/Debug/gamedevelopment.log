@@ -1,0 +1,29 @@
+﻿  game.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(294,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(294,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(307,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(307,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(320,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(320,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(529,38): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  khunglong.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\vector2d.h(14,33): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\khunglong.cpp(23,33): warning C4305: 'argument': truncation from 'double' to 'float'
+  main.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\main.cpp(5,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\main.cpp(14,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  meteor.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\vector2d.h(14,33): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  monster.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\vector2d.h(14,33): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  sdlgameobject.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\vector2d.h(14,33): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(6,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(6,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(57,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(58,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(67,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(68,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  texturemanager.cpp
+  Generating Code...
+  gamedevelopment.vcxproj -> C:\Users\Administrator\Desktop\gamedevelopment\x64\Debug\gamedevelopment.exe
