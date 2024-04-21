@@ -7,7 +7,7 @@ Game* Game::s_pInstance = 0;
 Game::Game() {
     backgroundX = 0;
     backgroundY = 0;
-    backgroundvelocity = -1;
+    backgroundvelocity = -3;
     backgroundwidth = 1000;
     backgroundheight = 600;
     lastMonsterSpawnTime = 0;
