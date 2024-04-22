@@ -32,7 +32,7 @@ int main(int agrc, char* agrv[])
             if (menu == 1)
             {
                 Game::Instance()->stopallsoundeffect();
-                Game::Instance()->soundeffect("menu_audio.wav", -1);
+                Game::Instance()->soundeffect("sound/menu_audio.wav", -1);
             }
             while (menu == 1)
             {
@@ -53,7 +53,7 @@ int main(int agrc, char* agrv[])
                             playing = true;
 
                             Game::Instance()->stopallsoundeffect();
-                            Game::Instance()->soundeffect("mouse_click.wav", 0);
+                            Game::Instance()->soundeffect("sound/mouse_click.wav", 0);
                         }
                     }
                     else if (mouseX > 420 && mouseX < 580 && mouseY > 340 && mouseY < 460)
@@ -61,7 +61,7 @@ int main(int agrc, char* agrv[])
                         Game::Instance()->rendermenubutton1();
                         if (event.type == SDL_MOUSEBUTTONDOWN)
                         {
-                            Game::Instance()->soundeffect("mouse_click.wav", 0);
+                            Game::Instance()->soundeffect("sound/mouse_click.wav", 0);
                             bool back = false;
                             while (!back)
                             {
@@ -76,7 +76,7 @@ int main(int agrc, char* agrv[])
                                         Game::Instance()->rendermenubutton4();
                                         if (event.type == SDL_MOUSEBUTTONDOWN)
                                         {
-                                            Game::Instance()->soundeffect("mouse_click.wav", 0);
+                                            Game::Instance()->soundeffect("sound/mouse_click.wav", 0);
                                             back = true;
                                         }
                                     }
@@ -94,7 +94,7 @@ int main(int agrc, char* agrv[])
                         Game::Instance()->rendermenubutton2();
                         if (event.type == SDL_MOUSEBUTTONDOWN)
                         {
-                            Game::Instance()->soundeffect("mouse_click.wav", 0);
+                            Game::Instance()->soundeffect("sound/mouse_click.wav", 0);
                             SDL_Delay(500);
                             Game::Instance()->clean();
                             Game::Instance()->quit();
@@ -106,7 +106,7 @@ int main(int agrc, char* agrv[])
                     }
                 }
             }
-            Game::Instance()->soundeffect("bkgr_audio.wav", -1);
+            Game::Instance()->soundeffect("sound/bkgr_audio.wav", -1);
 
             Game::Instance()->loadtoplay(3);
             Game::Instance()->loadtoplay(2);

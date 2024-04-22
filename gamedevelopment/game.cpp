@@ -28,7 +28,7 @@ void Game::drawtext()
 
     TTF_Init();
     // Mở phông chữ (nên làm điều này một lần trong quá trình khởi tạo và sử dụng lại)
-    TTF_Font* font = TTF_OpenFont("pixel_font.ttf", 20);
+    TTF_Font* font = TTF_OpenFont("ttf/pixel_font.ttf", 20);
     if (!font) {
         std::cout << "fail to load font\n";
         return;
@@ -89,7 +89,7 @@ void Game::loadtoplay(int n)
     Game::Instance()->renderforText();
     TTF_Init();
     // Mở phông chữ (nên làm điều này một lần trong quá trình khởi tạo và sử dụng lại)
-    TTF_Font* font = TTF_OpenFont("pixel_font.ttf", 300);
+    TTF_Font* font = TTF_OpenFont("ttf/pixel_font.ttf", 300);
     if (!font) {
         std::cout << "fail to load font\n";
         return;
@@ -175,16 +175,16 @@ void Game::stopallsoundeffect()
 }
 void Game::loadmedia()
 {
-    vectorfilename.push_back("layer01.png");
-    vectorfilename.push_back("layer02.png");
-    vectorfilename.push_back("layer03.png");
-    vectorfilename.push_back("layer04.png");
-    vectorfilename.push_back("layer05.png");
-    vectorfilename.push_back("layer06.png");
-    vectorfilename.push_back("layer07.png");
-    vectorfilename.push_back("layer08.png");
-    vectorfilename.push_back("layer09.png");
-    vectorfilename.push_back("layer11.png");
+    vectorfilename.push_back("img/layer01.png");
+    vectorfilename.push_back("img/layer02.png");
+    vectorfilename.push_back("img/layer03.png");
+    vectorfilename.push_back("img/layer04.png");
+    vectorfilename.push_back("img/layer05.png");
+    vectorfilename.push_back("img/layer06.png");
+    vectorfilename.push_back("img/layer07.png");
+    vectorfilename.push_back("img/layer08.png");
+    vectorfilename.push_back("img/layer09.png");
+    vectorfilename.push_back("img/layer11.png");
     for (int i = 0; i < vectorfilename.size(); i++)
     {
         SDL_Surface* pSurFace = IMG_Load(vectorfilename[i].c_str());
@@ -208,12 +208,12 @@ void Game::loadmedia()
 void Game::loadmenu()
 {
 
-    vectormenu.push_back("menu0.png");
-    vectormenu.push_back("menu1.png");
-    vectormenu.push_back("menu2.png");
-    vectormenu.push_back("instruction.png");
-    vectormenu.push_back("instruction1.png");
-    SDL_Surface* gmenu = IMG_Load("menu.png");
+    vectormenu.push_back("img/menu0.png");
+    vectormenu.push_back("img/menu1.png");
+    vectormenu.push_back("img/menu2.png");
+    vectormenu.push_back("img/instruction.png");
+    vectormenu.push_back("img/instruction1.png");
+    SDL_Surface* gmenu = IMG_Load("img/menu.png");
     for (int i = 0; i < 5; i++)
     {
         SDL_Surface* gSurface = IMG_Load(vectormenu[i].c_str());
@@ -248,7 +248,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
     }
     SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
 
-    TextureManager::Instance()->load("final-Photoroom.png-Photoroom.png", "animate", m_pRenderer);
+    TextureManager::Instance()->load("img/final-Photoroom.png-Photoroom.png", "animate", m_pRenderer);
     m_khunglong = new Khunglong(new LoaderParams(0, 500, 60, 60, "animate"));
 
     return true;
@@ -290,7 +290,7 @@ void Game::update()
         {
             if (m_khunglong->getpositionY() == 500)
             {
-                TextureManager::Instance()->load("yellowkhunglong.png", "yellowkhunglong", m_pRenderer);
+                TextureManager::Instance()->load("img/yellowkhunglong.png", "yellowkhunglong", m_pRenderer);
                 m_khunglong = new Khunglong(new LoaderParams(m_khunglong->getpositionX(), m_khunglong->getpositionY(), 60, 60, "yellowkhunglong"));
 
                 i = 1;
@@ -303,7 +303,7 @@ void Game::update()
         {
             if (m_khunglong->getpositionY() == 500)
             {
-                TextureManager::Instance()->load("redkhunglong.png", "redkhunglong", m_pRenderer);
+                TextureManager::Instance()->load("img/redkhunglong.png", "redkhunglong", m_pRenderer);
                 m_khunglong = new Khunglong(new LoaderParams(m_khunglong->getpositionX(), m_khunglong->getpositionY(), 60, 60, "redkhunglong"));
 
                 i = 2;
@@ -316,7 +316,7 @@ void Game::update()
         {
             if (m_khunglong->getpositionY() == 500)
             {
-                TextureManager::Instance()->load("bluekhunglong.png", "bluekhunglong", m_pRenderer);
+                TextureManager::Instance()->load("img/bluekhunglong.png", "bluekhunglong", m_pRenderer);
                 m_khunglong = new Khunglong(new LoaderParams(m_khunglong->getpositionX(), m_khunglong->getpositionY(), 60, 60, "bluekhunglong"));
                 i = -1;
             }
@@ -329,7 +329,7 @@ void Game::update()
     if (currentTime - lastMonsterSpawnTime >= Time) // Thời gian giữa mỗi lần tạo monster là 5000ms
     {
 
-        TextureManager::Instance()->load("cactus.png", "monster", m_pRenderer);
+        TextureManager::Instance()->load("img/cactus.png", "monster", m_pRenderer);
         m_monster = new Monster(new LoaderParams(1000, 500, 37, 57, "monster"));
 
         m_monster->update();
@@ -344,7 +344,7 @@ void Game::update()
         if (currentTime1 - lastBatSpawnTime >= Time1) // Thời gian giữa mỗi lần tạo monster là 5000ms
         {
 
-            TextureManager::Instance()->load("bat.png", "bat", m_pRenderer);
+            TextureManager::Instance()->load("img/bat.png", "bat", m_pRenderer);
             m_bat = new Bat(new LoaderParams(1000, 500, 43, 60, "bat"));
 
             m_bat->update();
@@ -353,12 +353,12 @@ void Game::update()
             Time1 = rand() % 7000 + 2500;
         }
     }
-    if (Point >= 2000)
+    if (Point >= 20)
     {
         if (currentTime - lastMeteorSpawnTime >= Timemeteor)
         {
             int ran = rand() % 300 + 700;
-            TextureManager::Instance()->load("meteor.png", "meteor", m_pRenderer);
+            TextureManager::Instance()->load("img/meteor.png", "meteor", m_pRenderer);
             m_meteor = new Meteor(new LoaderParams(ran, 0, 160, 211, "meteor"));
 
             m_meteor->update();
@@ -587,9 +587,9 @@ void Game::checkcollisionbox(SDLGameObject* monster, SDLGameObject* khunglong) {
     if (SDL_HasIntersection(&monsterRect, &khunglongRect)) {
         // Xử lý va chạm ở đây, ví dụ: kết thúc trò chơi, giảm máu, ...
         // Trong ví dụ này, tôi chỉ sử dụng SDL_Quit() để thoát khỏi trò chơi
-        TextureManager::Instance()->load("lose.png", "lose", m_pRenderer);
+        TextureManager::Instance()->load("img/lose.png", "lose", m_pRenderer);
         TextureManager::Instance()->draw("lose", 0, 0, 928, 522, m_pRenderer);
-        Game::Instance()->soundeffect("jump_sound.wav", 0);
+        Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
         SDL_RenderPresent(m_pRenderer);
         bool check = false;
         while (!check)
@@ -625,9 +625,9 @@ void Game::checkcollisionboxmeteor(SDLGameObject* monster, SDLGameObject* khungl
     if (SDL_HasIntersection(&monsterRect, &khunglongRect)) {
         // Xử lý va chạm ở đây, ví dụ: kết thúc trò chơi, giảm máu, ...
         // Trong ví dụ này, tôi chỉ sử dụng SDL_Quit() để thoát khỏi trò chơi
-        TextureManager::Instance()->load("lose.png", "lose", m_pRenderer);
+        TextureManager::Instance()->load("img/lose.png", "lose", m_pRenderer);
         TextureManager::Instance()->draw("lose", 0, 0, 928, 522, m_pRenderer);
-        Game::Instance()->soundeffect("jump_sound.wav", 0);
+        Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
         SDL_RenderPresent(m_pRenderer);
         bool check = false;
         while (!check)
