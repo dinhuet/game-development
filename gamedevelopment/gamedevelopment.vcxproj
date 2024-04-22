@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="bat.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="heart.h" />
     <ClInclude Include="khunglong.h" />
     <ClInclude Include="loaderparams.h" />
     <ClInclude Include="meteor.h" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="bat.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="heart.cpp" />
     <ClCompile Include="khunglong.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="meteor.cpp" />

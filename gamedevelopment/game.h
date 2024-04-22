@@ -11,7 +11,7 @@
 #include "monster.h"
 #include "bat.h"
 #include "meteor.h"
-
+#include "heart.h"
 class Game
 {
 public:
@@ -73,10 +73,14 @@ private:
     SDLGameObject* m_meteor = 0;
     SDLGameObject* m_monster = 0;
     SDLGameObject* m_bat;
+    SDLGameObject* m_heart = 0;
+    SDLGameObject* scoreheart = 0;
 
     std::vector<SDLGameObject*> vectormonster;
     std::vector<SDLGameObject*> vectorbat;
     std::vector<SDLGameObject*> vectormeteor;
+    std::vector<SDLGameObject*> vectorheart;
+
     SDL_Window* m_pWindow = 0;
     SDL_Renderer* m_pRenderer = 0;
     SDL_Renderer* textRenderer = 0;
@@ -87,20 +91,22 @@ private:
     int backgroundwidth;
     int backgroundheight;
 
+    unsigned int currentTime = SDL_GetTicks();
     unsigned int Time;
     unsigned int lastMonsterSpawnTime;
     unsigned int lastBatSpawnTime;
     unsigned int Time1;
     unsigned int Timemeteor;
     unsigned int lastMeteorSpawnTime;
-
+    unsigned int lastheartTime = 0;
     unsigned int Point;
     unsigned int checkPoint;
     unsigned int highscore;
     int i = 0;
-
+    int countheart = 3;
     const Uint8* keystates1 = SDL_GetKeyboardState(0);
     bool checkcontinue;
+    bool checkheart = true; 
 };
 
 #endif // GAME_H

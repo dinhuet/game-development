@@ -250,7 +250,13 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 
     TextureManager::Instance()->load("img/final-Photoroom.png-Photoroom.png", "animate", m_pRenderer);
     m_khunglong = new Khunglong(new LoaderParams(0, 500, 60, 60, "animate"));
-
+    TextureManager::Instance()->load("img/heart (1).png", "heart", m_pRenderer);
+    scoreheart = new Heart(new LoaderParams(3, 40, 50, 40, "heart"));
+    vectorheart.push_back(scoreheart);
+    scoreheart = new Heart(new LoaderParams(24, 40, 50, 40, "heart"));
+    vectorheart.push_back(scoreheart);
+    scoreheart = new Heart(new LoaderParams(45, 40, 50, 40, "heart"));
+    vectorheart.push_back(scoreheart);
     return true;
 }
 
@@ -264,7 +270,15 @@ void Game::render()
     Game::Instance()->renderbackground();
     Game::Instance()->rendernextbackground();
     m_khunglong->draw();
-
+    if (m_heart)
+    {
+        std::cout << "ok\n";
+        m_heart->drawmonster();
+    }
+    for (int i = 0; i < countheart; i++)
+    {
+        vectorheart[i]->drawmonster();
+    }
     for (int i = 0; i < vectormonster.size(); i++)
     {
         vectormonster[i]->draw();
@@ -278,12 +292,15 @@ void Game::render()
     {
         vectorbat[i]->draw();
     }
+    
     Game::Instance()->drawtext();
     SDL_RenderPresent(m_pRenderer);
 }
 
 void Game::update()
 {
+    m_khunglong->update();
+    if (m_heart) m_heart->update();
     if (i == 0)
     {
         if (Point >= 1000)
@@ -322,10 +339,20 @@ void Game::update()
             }
         }
     }
+    if (Point % 1000 == 0 && Point != 0)
+    {
+        TextureManager::Instance()->load("img/heart (1).png", "heart", m_pRenderer);
+        m_heart = new Heart(new LoaderParams(1000, 440, 60, 50, "heart"));
+        if (!m_heart)
+        {
+            std::cout << "fail to load heart";
+        }
 
+       if (m_heart->getpositionX() <= 0) delete m_heart;
+
+    }
     unsigned int currentTime = SDL_GetTicks();
-
-
+    
     if (currentTime - lastMonsterSpawnTime >= Time) // Thời gian giữa mỗi lần tạo monster là 5000ms
     {
 
@@ -337,7 +364,6 @@ void Game::update()
         lastMonsterSpawnTime = currentTime;
         Time = rand() % 5000 + 500;
     }
-
     unsigned int currentTime1 = SDL_GetTicks();
     if (Point >= 1000)
     {
@@ -349,11 +375,11 @@ void Game::update()
 
             m_bat->update();
             vectorbat.push_back(m_bat);
-            lastBatSpawnTime = currentTime;
+            lastBatSpawnTime = currentTime1;
             Time1 = rand() % 7000 + 2500;
         }
     }
-    if (Point >= 20)
+    if (Point >= 2000)
     {
         if (currentTime - lastMeteorSpawnTime >= Timemeteor)
         {
@@ -371,7 +397,7 @@ void Game::update()
             else Timemeteor = rand() % 5000 + 1000;
         }
     }
-    m_khunglong->update();
+    
     for (int i = 0; i < vectormonster.size(); i++)
     {
         if (vectormonster[i]->getpositionX() <= -5)
@@ -413,7 +439,17 @@ void Game::update()
         vectormeteor[i]->update();
     }
 
+    if (m_heart) {
+        SDL_Rect monsterRect = m_heart->getcollisionbox();
+        SDL_Rect khunglongRect = m_khunglong->getcollisionbox();
 
+        if (SDL_HasIntersection(&monsterRect, &khunglongRect)) {
+            // Xử lý va chạm ở đây, ví dụ: kết thúc trò chơi, giảm máu, ...
+            // Trong ví dụ này, tôi chỉ sử dụng SDL_Quit() để thoát khỏi trò chơi
+           if(countheart < 3)  countheart++;
+            m_heart = 0;
+        }
+    }
 
     for (int i = 0; i < vectormonster.size(); i++)
     {
@@ -583,40 +619,48 @@ void Game::middlerenderbackground()
 void Game::checkcollisionbox(SDLGameObject* monster, SDLGameObject* khunglong) {
     SDL_Rect monsterRect = monster->getcollisionbox();
     SDL_Rect khunglongRect = khunglong->getcollisionbox();
-
+    unsigned int Timeheart = SDL_GetTicks();
     if (SDL_HasIntersection(&monsterRect, &khunglongRect)) {
         // Xử lý va chạm ở đây, ví dụ: kết thúc trò chơi, giảm máu, ...
         // Trong ví dụ này, tôi chỉ sử dụng SDL_Quit() để thoát khỏi trò chơi
-        TextureManager::Instance()->load("img/lose.png", "lose", m_pRenderer);
-        TextureManager::Instance()->draw("lose", 0, 0, 928, 522, m_pRenderer);
-        Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
-        SDL_RenderPresent(m_pRenderer);
-        bool check = false;
-        while (!check)
+        if (Timeheart - lastheartTime >= 300) {
+            countheart--;
+            lastheartTime = Timeheart;
+            Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
+        }
+
+        if (countheart == 0)
         {
-            SDL_Event event;
-            while (!check) {
-                while (SDL_PollEvent(&event)) {
-                    if (event.type == SDL_KEYDOWN) {
-                        if (event.key.keysym.sym == SDLK_ESCAPE) {
-                            clean();
-                            quit();
-                        }
-                    }
-                    if (event.type = SDL_KEYDOWN)
-                    {
-                        if (event.key.keysym.sym == SDLK_SPACE)
-                        {
-                            check = true;
-                            restartgame();
+            TextureManager::Instance()->load("img/lose.png", "lose", m_pRenderer);
+            TextureManager::Instance()->draw("lose", 0, 0, 928, 522, m_pRenderer);
+            Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
+            SDL_RenderPresent(m_pRenderer);
+            bool check = false;
+            while (!check)
+            {
+                SDL_Event event;
+                while (!check) {
+                    while (SDL_PollEvent(&event)) {
+                        if (event.type == SDL_KEYDOWN) {
+                            if (event.key.keysym.sym == SDLK_ESCAPE) {
+                                clean();
+                                quit();
+                            }
+                            if (event.key.keysym.sym == SDLK_SPACE)
+                            {
+                                check = true;
+                                restartgame();
+                            }
                         }
                     }
                 }
             }
-
+            
         }
     }
+   
 }
+
 
 void Game::checkcollisionboxmeteor(SDLGameObject* monster, SDLGameObject* khunglong) {
     SDL_Rect monsterRect = monster->getcollisionboxmeteor();
@@ -640,15 +684,13 @@ void Game::checkcollisionboxmeteor(SDLGameObject* monster, SDLGameObject* khungl
                             clean();
                             quit();
                         }
-                    }
-                    if (event.type = SDL_KEYDOWN)
-                    {
                         if (event.key.keysym.sym == SDLK_SPACE)
                         {
                             check = true;
                             restartgame();
                         }
                     }
+                   
                 }
             }
 
@@ -670,6 +712,7 @@ void Game::restartgame()
     Timemeteor = 0;
     checkcontinue = true;
     i = 0;
+    countheart = 3;
     m_khunglong = new Khunglong(new LoaderParams(0, 500, 60, 60, "animate"));
     if (Point > highscore) highscore = Point;
     Point = 0;

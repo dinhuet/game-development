@@ -42,6 +42,9 @@
     <ClInclude Include="vector2d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="heart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bat.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="texturemanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="heart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
