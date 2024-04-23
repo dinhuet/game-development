@@ -17,7 +17,7 @@ Game::Game() {
     Time1 = 0;
     Timemeteor = 0;
     checkcontinue = true;
-    Point = 9000;
+    Point = 0;
     highscore = 0;
 
 }
@@ -137,7 +137,6 @@ void Game::renderforText()
     SDL_RenderClear(m_pRenderer);
 
     Game::Instance()->middlerenderbackground();
-    //Game::Instance()->movebackground();
     Game::Instance()->renderbackground();
     Game::Instance()->rendernextbackground();
     m_khunglong->draw();
@@ -364,7 +363,8 @@ void Game::update()
         m_monster->update();
         vectormonster.push_back(m_monster);
         lastMonsterSpawnTime = currentTime;
-        Time = rand() % 5000 + 500;
+        if(Point < 5000) Time = rand() % 5000 + 500;
+        else Time = rand() % 3000 + 500;
     }
     unsigned int currentTime1 = SDL_GetTicks();
     if (Point >= 1000)
@@ -378,7 +378,8 @@ void Game::update()
             m_bat->update();
             vectorbat.push_back(m_bat);
             lastBatSpawnTime = currentTime1;
-            Time1 = rand() % 7000 + 2500;
+            if(Point < 7000)    Time1 = rand() % 7000 + 2500;          
+            else Time1 = rand() % 4500 + 2500;
         }
     }
     if (Point >= 2000)
@@ -447,7 +448,6 @@ void Game::update()
 
         if (SDL_HasIntersection(&monsterRect, &khunglongRect)) {
             // Xử lý va chạm ở đây, ví dụ: kết thúc trò chơi, giảm máu, ...
-            // Trong ví dụ này, tôi chỉ sử dụng SDL_Quit() để thoát khỏi trò chơi
             Game::Instance()->soundeffect("sound/heart_sound.wav", 0);
            if(countheart < 3)  countheart++;
             m_heart = 0;

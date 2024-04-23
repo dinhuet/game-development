@@ -1,9 +1,9 @@
 ﻿  game.cpp
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(311,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(311,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(324,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(324,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(337,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(337,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(310,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(310,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(323,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(323,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(336,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(336,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(568,38): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
   gamedevelopment.vcxproj -> C:\Users\Administrator\Desktop\gamedevelopment\x64\Debug\gamedevelopment.exe
