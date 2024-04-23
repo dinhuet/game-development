@@ -16,7 +16,7 @@ void Khunglong::update()
 
     if ((keystates[SDL_SCANCODE_UP] || keystates[SDL_SCANCODE_SPACE]) && !jumping)
     {
-        Game::Instance()->soundeffect("sound/lose_sound.wav", 0);
+        Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
         std::cout << "up success\n";
         m_velocity.setY(-7);
 

@@ -102,7 +102,7 @@ private:
     unsigned int Point;
     unsigned int checkPoint;
     unsigned int highscore;
-    int i = 0;
+    int statekhunglong = 0;
     int countheart = 3;
     const Uint8* keystates1 = SDL_GetKeyboardState(0);
     bool checkcontinue;

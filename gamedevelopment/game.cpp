@@ -17,7 +17,7 @@ Game::Game() {
     Time1 = 0;
     Timemeteor = 0;
     checkcontinue = true;
-    Point = 0;
+    Point = 9000;
     highscore = 0;
 
 }
@@ -299,9 +299,9 @@ void Game::render()
 
 void Game::update()
 {
-    m_khunglong->update();
+    
     if (m_heart) m_heart->update();
-    if (i == 0)
+    if (statekhunglong == 0)
     {
         if (Point >= 1000)
         {
@@ -310,11 +310,11 @@ void Game::update()
                 TextureManager::Instance()->load("img/yellowkhunglong.png", "yellowkhunglong", m_pRenderer);
                 m_khunglong = new Khunglong(new LoaderParams(m_khunglong->getpositionX(), m_khunglong->getpositionY(), 60, 60, "yellowkhunglong"));
 
-                i = 1;
+                statekhunglong = 1;
             }
         }
     }
-    else if (i == 1)
+    else if (statekhunglong == 1)
     {
         if (Point >= 5000)
         {
@@ -323,7 +323,7 @@ void Game::update()
                 TextureManager::Instance()->load("img/redkhunglong.png", "redkhunglong", m_pRenderer);
                 m_khunglong = new Khunglong(new LoaderParams(m_khunglong->getpositionX(), m_khunglong->getpositionY(), 60, 60, "redkhunglong"));
 
-                i = 2;
+                statekhunglong = 2;
             }
         }
     }
@@ -335,11 +335,13 @@ void Game::update()
             {
                 TextureManager::Instance()->load("img/bluekhunglong.png", "bluekhunglong", m_pRenderer);
                 m_khunglong = new Khunglong(new LoaderParams(m_khunglong->getpositionX(), m_khunglong->getpositionY(), 60, 60, "bluekhunglong"));
-                i = -1;
+                //statekhunglong = -1;
+               
             }
         }
     }
-    if (Point % 1000 == 0 && Point != 0)
+    m_khunglong->update();
+    if (Point % 2000 == 0 && Point != 0)
     {
         TextureManager::Instance()->load("img/heart (1).png", "heart", m_pRenderer);
         m_heart = new Heart(new LoaderParams(1000, 440, 60, 50, "heart"));
@@ -446,6 +448,7 @@ void Game::update()
         if (SDL_HasIntersection(&monsterRect, &khunglongRect)) {
             // Xử lý va chạm ở đây, ví dụ: kết thúc trò chơi, giảm máu, ...
             // Trong ví dụ này, tôi chỉ sử dụng SDL_Quit() để thoát khỏi trò chơi
+            Game::Instance()->soundeffect("sound/heart_sound.wav", 0);
            if(countheart < 3)  countheart++;
             m_heart = 0;
         }
@@ -626,14 +629,14 @@ void Game::checkcollisionbox(SDLGameObject* monster, SDLGameObject* khunglong) {
         if (Timeheart - lastheartTime >= 300) {
             countheart--;
             lastheartTime = Timeheart;
-            Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
+            Game::Instance()->soundeffect("sound/lose_sound.wav", 0);
         }
 
         if (countheart == 0)
         {
             TextureManager::Instance()->load("img/lose.png", "lose", m_pRenderer);
             TextureManager::Instance()->draw("lose", 0, 0, 928, 522, m_pRenderer);
-            Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
+            Game::Instance()->soundeffect("sound/lose_sound.wav", 0);
             SDL_RenderPresent(m_pRenderer);
             bool check = false;
             while (!check)
@@ -671,7 +674,7 @@ void Game::checkcollisionboxmeteor(SDLGameObject* monster, SDLGameObject* khungl
         // Trong ví dụ này, tôi chỉ sử dụng SDL_Quit() để thoát khỏi trò chơi
         TextureManager::Instance()->load("img/lose.png", "lose", m_pRenderer);
         TextureManager::Instance()->draw("lose", 0, 0, 928, 522, m_pRenderer);
-        Game::Instance()->soundeffect("sound/jump_sound.wav", 0);
+        Game::Instance()->soundeffect("sound/lose_sound.wav", 0);
         SDL_RenderPresent(m_pRenderer);
         bool check = false;
         while (!check)
@@ -711,7 +714,7 @@ void Game::restartgame()
     Time1 = 0;
     Timemeteor = 0;
     checkcontinue = true;
-    i = 0;
+    statekhunglong = 0;
     countheart = 3;
     m_khunglong = new Khunglong(new LoaderParams(0, 500, 60, 60, "animate"));
     if (Point > highscore) highscore = Point;
