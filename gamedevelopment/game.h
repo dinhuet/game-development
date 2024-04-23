@@ -105,8 +105,6 @@ private:
     int statekhunglong = 0;
     int countheart = 3;
     const Uint8* keystates1 = SDL_GetKeyboardState(0);
-    bool checkcontinue;
-    bool checkheart = true; 
 };
 
 #endif // GAME_H

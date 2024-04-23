@@ -7,7 +7,7 @@ Khunglong::Khunglong(const LoaderParams* pParams) : SDLGameObject(pParams) {
 
 void Khunglong::draw()
 {
-    //SDLGameObject::returnm_currentRow(2);
+    
     SDLGameObject::draw();
 }
 void Khunglong::update()

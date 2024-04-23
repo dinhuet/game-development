@@ -10,18 +10,21 @@ Game::Game() {
     backgroundvelocity = -3;
     backgroundwidth = 1000;
     backgroundheight = 600;
+    // cài đặt các thông số cho background
     lastMonsterSpawnTime = 0;
     lastBatSpawnTime = 0;
     lastMeteorSpawnTime = 0;
+    // biến thời gian xác định thời gian cuối cùng tạo ra đối tượng để tính toán tạo ra đối tượng trong lần tiếp theo
     Time = 0;
     Time1 = 0;
     Timemeteor = 0;
-    checkcontinue = true;
-    Point = 0;
+   // biến tính thời gian từ khi chơi game
+    Point = 10000;
     highscore = 0;
-
+    // tính điểm cho game
 }
 
+// hàm vẽ text lên màn hình ( ở đây là score + highscore)
 void Game::drawtext()
 {
 
@@ -84,6 +87,7 @@ void Game::drawtext()
     TTF_CloseFont(font);
 }
 
+// hàm vẽ text thời gian trước khi vào game
 void Game::loadtoplay(int n)
 {
     Game::Instance()->renderforText();
@@ -132,6 +136,7 @@ void Game::loadtoplay(int n)
     SDL_RenderClear(m_pRenderer);
 }
 
+// gần giống hàm render nhưng được sử dụng khi đợi chạy thời gian vào game
 void Game::renderforText()
 {
     SDL_RenderClear(m_pRenderer);
@@ -150,9 +155,16 @@ void Game::renderforText()
     {
         vectorbat[i]->draw();
     }
+    for (int i = 0; i < vectormeteor.size(); i++)
+    {
+        vectormeteor[i]->draw();
+    }
+    if (m_heart) m_heart->drawmonster();
     Game::Instance()->drawtext();
     SDL_RenderPresent(m_pRenderer);
 }
+
+// hàm tạo âm thanh cho game
 void Game::soundeffect(std::string s, int n)
 {
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
@@ -168,10 +180,13 @@ void Game::soundeffect(std::string s, int n)
 
 }
 
+// dừng tất cả âm thanh
 void Game::stopallsoundeffect()
 {
     Mix_HaltChannel(-1);
 }
+
+// hàm load phong cảnh cho game 
 void Game::loadmedia()
 {
     vectorfilename.push_back("img/layer01.png");
@@ -204,6 +219,8 @@ void Game::loadmedia()
     }
 
 }
+
+// hàm load menu cho game
 void Game::loadmenu()
 {
 
@@ -230,6 +247,7 @@ void Game::loadmenu()
 
 }
 
+// tạo cửa sổ, khủng long và trái tim
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
 
@@ -259,6 +277,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
     return true;
 }
 
+// render lên màn hình
 void Game::render()
 {
 
@@ -296,6 +315,11 @@ void Game::render()
     SDL_RenderPresent(m_pRenderer);
 }
 
+// trong hàm này gồm: 
+// dựa vào Point tạo nhiều trạng thái của khủng long, tạo trái tim khi ăn sẽ tăng mạng; 
+// dựa vào thời gian + Point tạo bat, monster (xương rồng) , thiên thạch (meteor) 
+// update các trạng thái di chuyển cũng như xuất hiện hoặc không của khủng long, thiên thạch, bat, xương rồng
+// check va chạm 
 void Game::update()
 {
     
@@ -333,9 +357,7 @@ void Game::update()
             if (m_khunglong->getpositionY() == 500)
             {
                 TextureManager::Instance()->load("img/bluekhunglong.png", "bluekhunglong", m_pRenderer);
-                m_khunglong = new Khunglong(new LoaderParams(m_khunglong->getpositionX(), m_khunglong->getpositionY(), 60, 60, "bluekhunglong"));
-                //statekhunglong = -1;
-               
+                m_khunglong = new Khunglong(new LoaderParams(m_khunglong->getpositionX(), m_khunglong->getpositionY(), 60, 60, "bluekhunglong")); 
             }
         }
     }
@@ -363,7 +385,8 @@ void Game::update()
         m_monster->update();
         vectormonster.push_back(m_monster);
         lastMonsterSpawnTime = currentTime;
-        if(Point < 5000) Time = rand() % 5000 + 500;
+        if(Point < 3000) Time = rand() % 5000 + 500;
+        else if (Point < 5000)  Time = rand() % 4000 + 500;
         else Time = rand() % 3000 + 500;
     }
     unsigned int currentTime1 = SDL_GetTicks();
@@ -378,26 +401,28 @@ void Game::update()
             m_bat->update();
             vectorbat.push_back(m_bat);
             lastBatSpawnTime = currentTime1;
-            if(Point < 7000)    Time1 = rand() % 7000 + 2500;          
+            if(Point < 4000)    Time1 = rand() % 7000 + 2500; 
+            else if (Point < 10000) Time1 = rand() % 6000 + 2500;
             else Time1 = rand() % 4500 + 2500;
         }
     }
-    if (Point >= 2000)
+    if (Point >= 3000)
     {
         if (currentTime - lastMeteorSpawnTime >= Timemeteor)
         {
-            int ran = rand() % 300 + 700;
+            int ran = rand() % 600 + 500;
             TextureManager::Instance()->load("img/meteor.png", "meteor", m_pRenderer);
             m_meteor = new Meteor(new LoaderParams(ran, 0, 160, 211, "meteor"));
 
             m_meteor->update();
             vectormeteor.push_back(m_meteor);
             lastMeteorSpawnTime = currentTime;
-            if (Point < 10000)
+            if (Point < 5000)
             {
                 Timemeteor = rand() % 5000 + 10000;
             }
-            else Timemeteor = rand() % 5000 + 1000;
+            else if (Point < 10000) Timemeteor = rand() % 5000 + 5000;
+            else Timemeteor = rand() % 3000 + 1000;
         }
     }
     
@@ -484,6 +509,7 @@ void Game::clean()
 
 }
 
+// render menu mặc định lên màn hình 
 void Game::rendermenu()
 {
     if (backgroundX == -backgroundwidth) backgroundX = 0;
@@ -497,6 +523,8 @@ void Game::rendermenu()
     SDL_RenderPresent(m_pRenderer);
 
 }
+
+// render menu với nút play trắng
 void Game::rendermenubutton0()
 {
 
@@ -510,6 +538,7 @@ void Game::rendermenubutton0()
     // Xử lý các sự kiện khác ở đây (nếu cần)
     SDL_RenderPresent(m_pRenderer);
 }
+// render menu với nút help trắng
 void Game::rendermenubutton1()
 {
 
@@ -523,6 +552,7 @@ void Game::rendermenubutton1()
     // Xử lý các sự kiện khác ở đây (nếu cần)
     SDL_RenderPresent(m_pRenderer);
 }
+// render menu với nút exit trắng
 void Game::rendermenubutton2()
 {
 
@@ -536,6 +566,7 @@ void Game::rendermenubutton2()
     // Xử lý các sự kiện khác ở đây (nếu cần)
     SDL_RenderPresent(m_pRenderer);
 }
+// render instruction mặc định
 void Game::rendermenubutton3()
 {
 
@@ -549,6 +580,7 @@ void Game::rendermenubutton3()
     // Xử lý các sự kiện khác ở đây (nếu cần)
     SDL_RenderPresent(m_pRenderer);
 }
+// render instruction nút thoát trắng
 void Game::rendermenubutton4()
 {
 
@@ -562,13 +594,12 @@ void Game::rendermenubutton4()
     // Xử lý các sự kiện khác ở đây (nếu cần)
     SDL_RenderPresent(m_pRenderer);
 }
+// di chuyển background dựa vào tốc độ đã cài đặt
 void Game::movebackground()
 {
-    //if (backgroundvelocity <= -1000) backgroundvelocity += 1000;
     backgroundX += backgroundvelocity;
-
-    //backgroundvelocity += backgroundacceleration;
 }
+// render background hiện tại
 void Game::renderbackground()
 {
 
@@ -583,6 +614,7 @@ void Game::renderbackground()
         SDL_RenderCopy(m_pRenderer, vectorTexture[i], 0, &destRect);
     }
 }
+//render background tiếp theo
 void Game::rendernextbackground()
 {
     int backgroundXcontinue;
@@ -600,6 +632,7 @@ void Game::rendernextbackground()
         SDL_RenderCopy(m_pRenderer, vectorTexture[i], 0, &destRect);
     }
 }
+// render 1 background giữa background hiện tạo và nextbackground để đè mất đi khoảng trắng
 void Game::middlerenderbackground()
 {
     int backgroundXcontinue = 0;
@@ -619,6 +652,7 @@ void Game::middlerenderbackground()
     }
 }
 
+// check va chạm khủng long với bat, xương rồng
 void Game::checkcollisionbox(SDLGameObject* monster, SDLGameObject* khunglong) {
     SDL_Rect monsterRect = monster->getcollisionbox();
     SDL_Rect khunglongRect = khunglong->getcollisionbox();
@@ -664,7 +698,7 @@ void Game::checkcollisionbox(SDLGameObject* monster, SDLGameObject* khunglong) {
    
 }
 
-
+// check va chạm với thiên thạch
 void Game::checkcollisionboxmeteor(SDLGameObject* monster, SDLGameObject* khunglong) {
     SDL_Rect monsterRect = monster->getcollisionboxmeteor();
     SDL_Rect khunglongRect = khunglong->getcollisionbox();
@@ -700,6 +734,8 @@ void Game::checkcollisionboxmeteor(SDLGameObject* monster, SDLGameObject* khungl
         }
     }
 }
+
+// cài lại cài đặt mặc định để bắt đầu lại game
 void Game::restartgame()
 {
     backgroundX = 0;
@@ -713,7 +749,6 @@ void Game::restartgame()
     Time = 0;
     Time1 = 0;
     Timemeteor = 0;
-    checkcontinue = true;
     statekhunglong = 0;
     countheart = 3;
     m_khunglong = new Khunglong(new LoaderParams(0, 500, 60, 60, "animate"));

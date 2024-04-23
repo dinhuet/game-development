@@ -21,7 +21,6 @@ public:
     virtual SDL_Rect getcollisionbox();
     virtual SDL_Rect getcollisionboxmeteor();
     virtual void setpositionX(float x);
-    virtual void returnm_currentRow(int n);
 protected:
     Vector2D m_position;
     Vector2D m_velocity;

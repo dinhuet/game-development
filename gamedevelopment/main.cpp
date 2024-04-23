@@ -4,13 +4,13 @@
 const int FPS = 60;
 const int DELAY_TIME = 1000.0f / FPS;
 const Uint8* keystates = SDL_GetKeyboardState(0);
-int menu = 1;
+int menu = 1; // nếu ấn play thì menu = 0 và bắt đầu game
 
 int main(int agrc, char* agrv[])
 {
-    bool continuegame = true;
-    bool playing = true;
-    bool out = false;
+    bool continuegame = true; // ấn exit thì continue = false;
+    bool playing = true; // true là chơi, false là không chơi
+    bool out = false; // out = false là đang trong vòng lặp chơi, out = true là về menu
     srand(time(0));
     Uint32 frameStart, frameTime;
     if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
@@ -21,9 +21,9 @@ int main(int agrc, char* agrv[])
             std::cout << "fail to init\n";
             return 1;
         }
-
-        Game::Instance()->loadmenu();
-        Game::Instance()->loadmedia();
+        
+        Game::Instance()->loadmenu(); //load menu cho game
+        Game::Instance()->loadmedia(); // load background cho game
 
         SDL_Event event;
 

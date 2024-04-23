@@ -75,7 +75,3 @@ void SDLGameObject::setpositionX(float x)
     m_position.setX(x);
 }
 
-void SDLGameObject::returnm_currentRow(int n)
-{
-    m_currentRow = n;
-}

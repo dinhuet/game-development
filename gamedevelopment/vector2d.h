@@ -24,16 +24,6 @@ public:
         return v1;
     }
 
-    Vector2D operator*(float scalar)
-    {
-        return Vector2D(m_x * scalar, m_y * scalar);
-    }
-    Vector2D operator*=(float scalar)
-    {
-        m_x *= scalar;
-        m_y *= scalar;
-        return *this;
-    }
     Vector2D operator- (const Vector2D& v2) const
     {
         return Vector2D(m_x - v2.m_x, m_y - v2.m_y);
@@ -44,29 +34,10 @@ public:
         v1.m_y -= v2.m_y;
         return v1;
     }
-    Vector2D operator/(float scalar)
-    {
-        return Vector2D(m_x / scalar, m_y / scalar);
-    }
-    Vector2D& operator/=(float scalar)
-    {
-        m_x /= scalar;
-        m_y /= scalar;
-    }
-    void normalize()
-    {
-        float l = length();
-        if (l > 0)
-        {
-            (*this) *= 1 / l;
-        }
-    }
-    Vector2D* getmouseposition()
-    {
-        return m_mouseposition;
-    }
+    
+    
 private:
     float m_x;
     float m_y;
-    Vector2D* m_mouseposition;
+   
 };

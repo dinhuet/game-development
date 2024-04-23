@@ -39,12 +39,9 @@ private:
     TextureManager() {}
     static TextureManager* s_pInstance;
     std::map<std::string, SDL_Texture*> m_textureMap;
-    // Declare but do not define the default constructor
+    
 
 };
-
-// Initialize the static member outside the class definition
-
 
 #endif // TEXTUREMANAGER_H
 
