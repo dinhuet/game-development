@@ -47,7 +47,7 @@ void Khunglong::update()
             m_position += {-2, 0};
     }
     SDLGameObject::update();
-
+    m_currentFrame = int(((SDL_GetTicks() / 100) % 9));
 }
 
 

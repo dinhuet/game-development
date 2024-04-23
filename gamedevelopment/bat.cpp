@@ -13,6 +13,7 @@ void Bat::update()
 {
 
     m_acceleration.setX(-0.05);
+    m_currentFrame = int(((SDL_GetTicks() / 100) % 5));
     SDLGameObject::update();
 }
 

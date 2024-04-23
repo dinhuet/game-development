@@ -11,7 +11,7 @@ void Heart::draw()
 }
 void Heart::update()
 {
-
+    m_currentFrame = int(((SDL_GetTicks() / 100) % 4));
     //m_acceleration.setX(-0.0001);
     SDLGameObject::update();
 }

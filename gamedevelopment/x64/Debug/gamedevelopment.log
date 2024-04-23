@@ -1,9 +1,9 @@
-﻿  game.cpp
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(310,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(310,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(323,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(323,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(336,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(336,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(568,38): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+﻿  sdlgameobject.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\vector2d.h(14,33): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(6,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(6,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(56,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(57,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(66,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\sdlgameobject.cpp(67,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   gamedevelopment.vcxproj -> C:\Users\Administrator\Desktop\gamedevelopment\x64\Debug\gamedevelopment.exe

@@ -27,9 +27,8 @@ void SDLGameObject::drawmonster()
 }
 void SDLGameObject::update()
 {
-    m_currentFrame = int(((SDL_GetTicks() / 100) % 5));
+ 
     m_position += m_velocity;
-
     m_velocity += m_acceleration;
 }
 
