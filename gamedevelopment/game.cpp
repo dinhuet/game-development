@@ -19,7 +19,7 @@ Game::Game() {
     Time1 = 0;
     Timemeteor = 0;
    // biến tính thời gian từ khi chơi game
-    Point = 10000;
+    Point = 0;
     highscore = 0;
     // tính điểm cho game
 }
