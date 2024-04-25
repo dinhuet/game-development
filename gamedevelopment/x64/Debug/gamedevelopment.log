@@ -1,1 +1,9 @@
-﻿  gamedevelopment.vcxproj -> C:\Users\Administrator\Desktop\gamedevelopment\x64\Debug\gamedevelopment.exe
+﻿  game.cpp
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(334,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(334,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(347,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(347,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(360,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(360,87): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\Desktop\gamedevelopment\gamedevelopment\game.cpp(601,38): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  gamedevelopment.vcxproj -> C:\Users\Administrator\Desktop\gamedevelopment\x64\Debug\gamedevelopment.exe

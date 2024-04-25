@@ -362,7 +362,7 @@ void Game::update()
         }
     }
     m_khunglong->update();
-    if (Point % 2000 == 0 && Point != 0)
+    if (Point % 2500 == 0 && Point != 0)
     {
         TextureManager::Instance()->load("img/heart (1).png", "heart", m_pRenderer);
         m_heart = new Heart(new LoaderParams(1000, 440, 60, 50, "heart"));
@@ -476,6 +476,7 @@ void Game::update()
             Game::Instance()->soundeffect("sound/heart_sound.wav", 0);
            if(countheart < 3)  countheart++;
             m_heart = 0;
+            Point += 500;
         }
     }
 
