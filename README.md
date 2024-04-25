@@ -9,6 +9,8 @@
 #### 2.1 [Giới thiệu chung](#intro) 
 #### 2.2 [Kiến thức áp dụng](#kiến-thức)
 #### 2.3 [Đồ hoạ và âm thanh](#sound)
+#### 2.4 [Cấu trúc](#cấu-trúc)
+#### 2.5 [Cách cài đặt](#cài-đặt)
 ### 3. Nhận xét
 
   #### 3.1 [Ngưỡng điểm](#ngưỡng-điểm)
@@ -19,7 +21,8 @@
 ## 1. Giới thiệu 
 - Họ và tên: Trần Quang Đỉnh
 - Mã SV: 23020043
-
+- Lớp học phần : 2324ll_INT2215_50
+  
 ## 2. Tổng quan về Game
 #### 2.1 Giới thiệu chung <a name="intro"></a>
 Dinosaur game dựa trên tựa game huyền thoại trên google chrome, được phát triển bởi Trần Quang Đỉnh. Khi chơi game, người chơi vào vai một chú khủng long có nhiều trạng thái, vượt qua những chướng ngại vật trên đường đi như xương rồng, dơi hay thậm chí là thiên thạch để chạy trốn khỏi thảm hoạ diệt vong của Trái Đất và giành về cho mình nhiều điểm nhất (**cẩn thận:** càng về sau chướng ngại vật sẽ càng nhiều)
@@ -41,7 +44,25 @@ Dinosaur game dựa trên tựa game huyền thoại trên google chrome, đư�
 
   (Riêng phần instruction đã sửa một phần cho phù hợp với chức năng của game và tên của người phát triển) 
 - Âm thanh + ttf: trên github [https://github.com/thai-nm/dino-in-zungle/tree/master](https://github.com/thai-nm/dino-in-zungle/tree/master)
+#### 2.4 Cấu trúc <a name="cấu-trúc"></a>
+- Folder sound: chứa tất cả source âm thanh của game
+- Folder img: chứa tất cả source ảnh của game
+- Folder ttf: chứa source văn bản
+- Một số file trong game:
 
+    - Game.h: chứa hầu hết logic của game
+    - Main.cpp: chứa vòng lặp chính của game và chuyển trạng thái Menu, Play, Pause,..
+    - Texturemanager.h: chứa các hàm quản lí tải và vẽ các tệp hình ảnh
+    - SDLGameObject.h: Lớp đối tượng (bao gồm các kế thừa Khunglong, Bat, Monster, Heart, Meteor)
+    - Loaderparams.h: chuyển thông số của các đối tượng.
+    - Vector2d.h: Biểu diễn vị trí và hướng trong không gian 2d
+  #### 2.5 Cách cài đặt <a name="cài-đặt"></a>
+  
+   1. Tải file zip về máy, lưu vào ổ C. Tìm file.exe: C:\gamedevelopment\gamedevelopment\gamedevelopment.exe để chạy (**lưu ý:** nên để project trong ổ C).
+   2. Sử dụng IDE: Visual Studio 2019 để liên kết thư viện.
+      
+      Chi tiết về cách liên kết thư viện trên Visual Studio:https://lazyfoo.net/tutorials/SDL/01_hello_SDL/windows/msvc2019/index.php
+      
   ## 3. Nhận xét
 #### 3.1 Ngưỡng điểm<a name="ngưỡng-điểm"></a>  **: 8.5 - 9**. 
 #### 3.2 Điểm tâm đắc<a name="lý-do"></a>
