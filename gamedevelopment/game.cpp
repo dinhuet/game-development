@@ -751,6 +751,7 @@ void Game::restartgame()
     Timemeteor = 0;
     statekhunglong = 0;
     countheart = 3;
+    m_heart = 0;
     m_khunglong = new Khunglong(new LoaderParams(0, 500, 60, 60, "animate"));
     if (Point > highscore) highscore = Point;
     Point = 0;
