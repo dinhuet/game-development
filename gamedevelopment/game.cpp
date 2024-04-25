@@ -467,7 +467,7 @@ void Game::update()
     if (m_heart) {
         SDL_Rect monsterRect = m_heart->getcollisionbox();
         SDL_Rect khunglongRect = m_khunglong->getcollisionbox();
-        if (m_heart->getpositionX() <= 0) delete m_heart;
+        if (m_heart->getpositionX() <= 0) m_heart = 0;
         if (SDL_HasIntersection(&monsterRect, &khunglongRect)) {
             // Xử lý va chạm ở đây, ví dụ: kết thúc trò chơi, giảm máu, ...
             Point += 500;
