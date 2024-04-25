@@ -428,7 +428,7 @@ void Game::update()
     
     for (int i = 0; i < vectormonster.size(); i++)
     {
-        if (vectormonster[i]->getpositionX() <= -5)
+        if (vectormonster[i]->getpositionX() <= -20)
         {
             delete vectormonster[i];
             vectormonster.erase(vectormonster.begin() + i);
@@ -443,7 +443,7 @@ void Game::update()
 
     for (int i = 0; i < vectorbat.size(); i++)
     {
-        if (vectorbat[i]->getpositionX() <= -5)
+        if (vectorbat[i]->getpositionX() <= -20)
         {
             delete vectorbat[i];
             vectorbat.erase(vectorbat.begin() + i);
