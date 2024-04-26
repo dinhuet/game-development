@@ -66,7 +66,7 @@ Dinosaur game dựa trên tựa game huyền thoại trên google chrome, đư�
     - Vector2d.h: Biểu diễn vị trí và hướng trong không gian 2d
   #### 2.5 Cách cài đặt <a name="cài-đặt"></a>
   
-   1. Tải file zip trên courses về máy, nên lưu vào ổ C. Tìm file.exe: C:\gamedevelopment\gamedevelopment\gamedevelopment.exe để chạy (**lưu ý:** để có dung lượng nhẹ tải lên courses, đã xoá .vs trong file zip. Do đó, file zip chỉ có chức năng demo game).
+   1. Tải file zip về máy, nên lưu vào ổ C. Tìm file.exe: C:\gamedevelopment\gamedevelopment\gamedevelopment.exe để chạy.
    2. Sử dụng IDE: Visual Studio 2019 để liên kết thư viện.
       
       Chi tiết về cách liên kết thư viện trên Visual Studio:https://lazyfoo.net/tutorials/SDL/01_hello_SDL/windows/msvc2019/index.php
