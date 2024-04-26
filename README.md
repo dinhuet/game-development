@@ -1,4 +1,8 @@
 # DINOSAUR GAME
+
+
+Link demo game + cấu trúc chính của game trên youtube https://youtu.be/RFlAMfVQsWw?si=PVQ6kvlo3ToExVGs
+
 -----
 ## Mục Lục
 
