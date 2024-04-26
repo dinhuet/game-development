@@ -29,10 +29,8 @@ public:
     void render();
     void renderforText();
     void update();
-    void draw();
     void quit();
     void clean();
-    void handleEvents();
     void loadmedia();
     void movebackground();
     SDL_Renderer* getRenderer() const { return m_pRenderer; }
